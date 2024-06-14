@@ -16,6 +16,7 @@ SearchOpenAPI.BASE = process.env.NEXT_PUBLIC_SEARCH_URL!;
  * Should always be imported BEFORE tailwind.
  */
 import "@mantine/core/styles.css";
+import "@mantine/tiptap/styles.css";
 
 import "@/components/globals.css";
 
