@@ -32,7 +32,7 @@ const ModerationItemDetails = ({ reportId }: Props) => {
     return (
         <Stack
             className={
-                "w-full h-full bg-[#161616] items-center justify-center pb-12"
+                "w-full h-full bg-[#161616] items-center justify-center p-1 lg:p-0 pb-4 lg:pb-12"
             }
         >
             <Group className={"w-full lg:px-12 justify-around mt-6"}>
@@ -126,7 +126,7 @@ const ModerationItemDetails = ({ reportId }: Props) => {
                     withBorder
                     radius={"sm"}
                     className={
-                        "w-full lg:w-5/12 !bg-[#181818] h-[240px] relative"
+                        "w-full lg:w-5/12 !bg-[#181818] h-[280px] lg:h-[240px] relative"
                     }
                 >
                     <Box className={"absolute ms-2 mt-2"}>
@@ -134,7 +134,11 @@ const ModerationItemDetails = ({ reportId }: Props) => {
                             Report target
                         </Text>
                     </Box>
-                    <Stack className={"w-full h-full items-center mt-10"}>
+                    <Stack
+                        className={
+                            "w-full h-full items-center mt-10 px-3 lg:px-0"
+                        }
+                    >
                         <Box className={"w-40"}>
                             <UserAvatarGroup
                                 avatarProps={{
@@ -158,7 +162,7 @@ const ModerationItemDetails = ({ reportId }: Props) => {
                     </Stack>
                 </Paper>
                 {report.targetReviewId && (
-                    <Box className={"lg:w-8/12 h-[240px]"}>
+                    <Box className={"lg:w-8/12 h-[280px] lg:h-[240px]"}>
                         <ModerationItemDetailsReviewContent
                             reviewId={report.targetReviewId}
                         />

@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+"use client";
+import React, { useEffect, useMemo, useState } from "react";
 import { Review } from "@/wrapper/server";
 import { EditorContent, useEditor } from "@tiptap/react";
 import { Box, Paper, Text } from "@mantine/core";
@@ -13,13 +14,7 @@ interface Props {
 const ModerationItemDetailsReviewContent = ({ reviewId }: Props) => {
     const reviewQuery = useReview(reviewId);
 
-    const content = useMemo(() => {
-        if (reviewQuery.data != undefined && reviewQuery.data.content) {
-            return reviewQuery.data.content.slice(0, 240);
-        }
-
-        return "";
-    }, [reviewQuery.data]);
+    const [content, setContent] = useState("");
 
     const nonEditableEditor = useEditor(
         {
@@ -29,6 +24,12 @@ const ModerationItemDetailsReviewContent = ({ reviewId }: Props) => {
         },
         [content],
     );
+
+    useEffect(() => {
+        if (reviewQuery.data != undefined && reviewQuery.data.content) {
+            setContent(reviewQuery.data.content.slice(0, 240));
+        }
+    }, [reviewQuery.data]);
 
     if (reviewQuery.isLoading) {
         return <CenteredLoading />;

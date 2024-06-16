@@ -20,7 +20,7 @@ const GlobalAppShell = ({ children }: { children: React.ReactNode }) => {
             }}
             footer={{ height: 60, offset: false }}
             classNames={{
-                main: "bg-mobile lg:bg-desktop bg-cover bg-center bg-fixed px-0",
+                main: "bg-mobile lg:bg-desktop bg-cover bg-center bg-fixed",
             }}
         >
             <AppShell.Header>

@@ -6,6 +6,7 @@ import React from "react";
 import useUserProfile from "@/components/profile/hooks/useUserProfile";
 import useOnMobile from "@/components/general/hooks/useOnMobile";
 import Break from "@/components/general/Break";
+import { MAIN_SITE_URL } from "@/components/utils/constants";
 
 interface IProps {
     userId: string;
@@ -26,8 +27,9 @@ export const UserAvatarGroup = ({
     const onMobile = useOnMobile();
     return (
         <Link
-            href={`/profile/${profileQuery.data?.userId}`}
+            href={`${MAIN_SITE_URL}/profile/${profileQuery.data?.userId}`}
             className={"w-full h-full"}
+            target={"_blank"}
         >
             <Group
                 wrap={onMobile ? "nowrap" : "wrap"}
